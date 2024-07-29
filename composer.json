@@ -1,0 +1,36 @@
+{
+    "name": "element/locator",
+    "description": "Element package for looking up addresses such as IP and Geo",
+    "keywords": ["Element core", "IP", "Geo-location"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefan Korfitz",
+            "homepage": "https://www.korfitz.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "stefan@korfitz.com"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        },
+        "sort-packages": true
+    },
+    "suggest": {
+        "php8": "This package utilizes features that are found in 7.4 - But if you use php8 or higher, then you should have no problems"
+    },
+    "autoload": {
+        "psr-4": {
+            "Element\\Locator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Element\\Unique\\Tests\\": "tests/"
+        }
+    }
+}
