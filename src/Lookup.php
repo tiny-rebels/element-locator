@@ -37,4 +37,32 @@ class Lookup {
 
         return $ipaddress;
     }
+
+    /**
+     * @param $apiKey
+     * @param $ip
+     * @param $lang
+     * @param $fields
+     * @param $excludes
+     *
+     * @return mixed
+     */
+    public static function geoLocation($apiKey, $ip, $lang = "en", $fields = "*", $excludes = "") {
+
+        $url = "https://api.ipgeolocation.io/ipgeo?apiKey=".$apiKey."&ip=".$ip."&lang=".$lang."&fields=".$fields."&excludes=".$excludes;
+        $cURL = curl_init();
+
+        curl_setopt($cURL, CURLOPT_URL, $url);
+        curl_setopt($cURL, CURLOPT_HTTPGET, true);
+        curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($cURL, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Accept: application/json',
+            'User-Agent: '.$_SERVER['HTTP_USER_AGENT']
+        ));
+
+        $location = curl_exec($cURL);
+
+        return json_decode($location, true);
+    }
 }

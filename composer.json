@@ -32,5 +32,9 @@
         "psr-4": {
             "Element\\Unique\\Tests\\": "tests/"
         }
+    },
+	"require": {
+		"ext-curl": "*",
+        "ext-json": "*"
     }
 }
