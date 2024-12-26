@@ -39,17 +39,26 @@ class Lookup {
     }
 
     /**
-     * @param $apiKey
-     * @param $ip
-     * @param $lang
-     * @param $fields
-     * @param $excludes
+     * @param string $apiKey
+     * @param string $ip
+     * @param string $lang
+     * @param string $fields
+     * @param string $include
+     * @param string $excludes
      *
      * @return mixed
      */
-    public static function geoLocation($apiKey, $ip, $lang = "en", $fields = "*", $excludes = "") {
+    public static function geoLocation(string $apiKey, string $ip, string $lang = "en", string $fields = "*", string $include = "", string $excludes = "") {
 
-        $url = "https://api.ipgeolocation.io/ipgeo?apiKey=".$apiKey."&ip=".$ip."&lang=".$lang."&fields=".$fields."&excludes=".$excludes;
+        $url = "https://api.ipgeolocation.io/ipgeo
+        
+            ?apiKey="       . $apiKey .
+            "&ip="          . $ip .
+            "&lang="        . $lang .
+            "&fields="      . $fields .
+            "&include="     . $include .
+            "&excludes="    . $excludes;
+
         $cURL = curl_init();
 
         curl_setopt($cURL, CURLOPT_URL, $url);
