@@ -50,14 +50,15 @@ class Lookup {
      */
     public static function geoLocation(string $apiKey, string $ip, string $lang = "en", string $fields = "*", string $include = "", string $excludes = "") {
 
-        $url = "https://api.ipgeolocation.io/ipgeo
-        
-            ?apiKey="       . $apiKey .
+        $url = "https://api.ipgeolocation.io/ipgeo" .
+
+            "?apiKey="      . $apiKey .
             "&ip="          . $ip .
             "&lang="        . $lang .
             "&fields="      . $fields .
             "&include="     . $include .
             "&excludes="    . $excludes;
+
 
         $cURL = curl_init();
 
